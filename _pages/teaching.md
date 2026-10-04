@@ -7,7 +7,6 @@ nav_order: 6
 published: true
 ---
 
-## Teaching profile
 
 My teaching brings together chemistry, molecular modelling and the interpretation of scientific data. I have taught undergraduate and postgraduate students in Spain and the Netherlands, through laboratory classes, computational practicals, interactive sessions and specialist schools. My experience spans chemistry, pharmacy and computational chemistry, with current teaching responsibilities in chemical engineering and biotechnology at the University of Oviedo.
 
