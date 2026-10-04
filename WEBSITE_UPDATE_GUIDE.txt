@@ -1,0 +1,83 @@
+WEBSITE UPDATE — 4 October 2026
+
+QUICK UPLOAD (no terminal needed)
+1. Extract marta-cr-website-update.zip on your computer.
+2. Open https://github.com/Marta-CR/marta-cr.github.io and choose the main branch.
+3. Select Add file > Upload files.
+4. Drag the CONTENTS of the extracted website-files folder into GitHub.
+   Include the folders themselves, so paths such as _pages/cv.md are preserved.
+   Do not upload the ZIP or the enclosing website-files folder.
+5. Review the file list below. Commit with: Update CV and ORCID publications.
+   Committing to main triggers the existing deployment workflow and publishes the changes.
+   To review first, choose a new branch and open a pull request instead.
+6. In Actions, check the Deploy site workflow. After it succeeds, inspect:
+   https://marta-cr.github.io/
+   https://marta-cr.github.io/publications/
+   https://marta-cr.github.io/cv/
+   https://marta-cr.github.io/teaching/
+
+This update is based on the uploaded September 4 repository snapshot. If you have
+edited any of these same files since then, compare them before replacing them.
+
+WHAT CHANGED
+- 30 journal articles, 1 conference paper, and 2 separately listed repository
+  working papers from ORCID 0000-0003-4204-3474 (retrieved 2026-10-04).
+- DOI, title, authors, journal, volume and pages/article numbers enriched from
+  Crossref for all 31 journal/conference items. Print/issue year preferred where
+  supplied; this puts the delta-lactams article in 2023, despite its 2022 online date.
+- Repository working papers use ORCID metadata and are not counted as additional
+  journal articles. DOI links point to the records; no open-access status was inferred.
+- Replaced the stale submitted status of the ChemPhysChem paper with its 2026 citation.
+- Preserved the existing personal CV format and added a compatible dedicated layout.
+  The original current CV layout expected another format and could render Einstein data.
+- Added current Oviedo position and teaching from the information you provided.
+- Corrected ORCID, GitHub and Google Scholar links; removed sample email/profile links.
+- Updated three selected publications and enabled them on the homepage.
+- Bolded your name in publication entries, including the earlier Castiñeira name variant.
+- Disabled two duplicate root-page stubs; the active pages remain in _pages/.
+- Replaced sample downloadable resume JSON with your name, current role and publications.
+- No GitHub changes have been published by the assistant.
+
+CV ITEMS TO CONFIRM BEFORE TREATING THIS AS A COMPLETE FINAL CV
+1. Current public institutional email: omitted the old CESGA address pending confirmation.
+2. CESGA end date: your uploaded CV says June 2026; retained pending confirmation.
+3. Exact ANECA accreditation category: removed the unverified English 'Full Professor'
+   claim. Supply the official Spanish category before adding it again.
+4. Supervision: replaced conflicting old totals and PhD co-supervision wording with
+   the five astrochemistry bachelor projects you previously confirmed. Supply your
+   complete verified supervision list to include earlier projects and master's work.
+5. HPC allocation: omitted the NWO node-hour quantity because prior figures conflict.
+6. Removed stale citation/h-index metrics and a planned February 2026 visit whose
+   completion is not confirmed. Retained other historical teaching/funding details
+   from the uploaded CV, rather than independently certifying them.
+7. VIU appointment dates, full current course history and a final downloadable CV PDF
+   remain to be supplied. No PDF link to the sample Einstein CV is used.
+8. Other template/demo pages are outside this update; this is not a full site redesign.
+
+CHECKS
+Passed: BibTeX parsing; 33 distinct DOIs; all entries have authors/titles/years;
+YAML parsing; CV Liquid template rendered with personal data and no sample identity.
+A full Jekyll build and browser visual review were not possible here because Ruby
+and Bundler are not installed. The existing GitHub Actions workflow is the final
+build check. Prefer a pull request if you want that check before publication.
+
+FUTURE UPDATES
+Publications: _bibliography/papers.bib (one record per DOI).
+CV: _data/cv.yml. Biography: _pages/about.md. Teaching: _pages/teaching.md.
+Profile links: _data/socials.yml. Publication page: _pages/publications.md.
+An ORCID update does not automatically update the website; the bibliography is static.
+
+FILES TO UPLOAD
+- _bibliography/papers.bib
+- _config.yml
+- _data/cv.yml
+- _data/socials.yml
+- _layouts/academic_cv.liquid
+- _layouts/bib.liquid
+- _pages/about.md
+- _pages/cv.md
+- _pages/publications.md
+- _pages/teaching.md
+- assets/json/resume.json
+- cv.md
+- publications.md
