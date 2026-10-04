@@ -9,6 +9,8 @@ nav_order: 2
 
 Publication list checked against [ORCID](https://orcid.org/0000-0003-4204-3474) on 4 October 2026. Journal citations use the issue year where available.
 
+**\* Corresponding author.** An asterisk after my name identifies publications for which I am a corresponding author.
+
 {% include bib_search.liquid %}
 
 ## Journal articles
