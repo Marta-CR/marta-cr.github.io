@@ -1,8 +1,7 @@
 ---
 layout: page
-title: teaching
-permalink: /teaching/
-description: University teaching, research supervision and scientific writing.
+title: Teaching
+permalink: /Teaching/
 nav: true
 nav_order: 6
 published: true
