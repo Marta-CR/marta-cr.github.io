@@ -38,11 +38,11 @@ ninja.data = [{
             window.location.href = "/repositories/";
           },
         },{id: "nav-teaching",
-          title: "teaching",
-          description: "University teaching, research supervision and scientific writing.",
+          title: "Teaching",
+          description: "",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/teaching/";
+            window.location.href = "/Teaching/";
           },
         },{id: "nav-people",
           title: "people",
