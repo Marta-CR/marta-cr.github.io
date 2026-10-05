@@ -1,3 +1,40 @@
+<style>
+  /* Match each menu label to its page title and section headings. */
+  #navbar .nav-link.section-cv { --nav-section-color: #b509ac; }
+  #navbar .nav-link.section-research { --nav-section-color: #7e3fa5; }
+  #navbar .nav-link.section-teaching { --nav-section-color: #007c83; }
+  #navbar .nav-link.section-people { --nav-section-color: #2465a0; }
+
+  #navbar .nav-link.section-nav-badge {
+    display: inline-block;
+    margin: 0.2rem 0.15rem;
+    padding: 0.25rem 0.45rem;
+    border-radius: 5px;
+    background: var(--nav-section-color);
+    color: #fff;
+    font-weight: 600;
+    line-height: 1.25;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+  }
+
+  #navbar .nav-item.active > .nav-link.section-nav-badge {
+    color: #fff;
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
+    text-decoration-thickness: 2px;
+  }
+
+  #navbar .nav-link.section-nav-badge:hover {
+    color: #fff;
+    filter: brightness(1.1);
+  }
+
+  #navbar .nav-link.section-nav-badge:focus-visible {
+    outline: 3px solid var(--global-text-color, #202020);
+    outline-offset: 3px;
+  }
+</style>
+
 <header>
   <!-- Nav Bar -->
   <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
@@ -107,7 +144,15 @@
                   {%- else -%}
                     {%- assign url = p.url -%}
                   {%- endif %}
-                  <a class="nav-link" href="{{ url | relative_url }}">
+                  {% assign nav_section = '' %}
+                  {% assign nav_permalink = p.permalink | downcase %}
+                  {% case nav_permalink %}
+                    {% when '/cv/' %}{% assign nav_section = 'cv' %}
+                    {% when '/projects/' %}{% assign nav_section = 'research' %}
+                    {% when '/teaching/' %}{% assign nav_section = 'teaching' %}
+                    {% when '/people/' %}{% assign nav_section = 'people' %}
+                  {% endcase %}
+                  <a class="nav-link{% if nav_section != '' %} section-nav-badge section-{{ nav_section }}{% endif %}" href="{{ url | relative_url }}">
                     {{- p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
