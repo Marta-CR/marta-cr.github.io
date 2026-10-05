@@ -1,7 +1,7 @@
 ---
 layout: page
 title: Teaching
-permalink: /Teaching/
+permalink: /teaching/
 nav: true
 nav_order: 6
 published: true
