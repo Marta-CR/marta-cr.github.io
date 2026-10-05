@@ -1,43 +1,223 @@
+{% comment %}Shared section colours for every layout, including About.{% endcomment %}
+{% assign section_permalink = page.permalink | default: page.url | downcase %}
+{% assign current_section = 'submenus' %}
+{% case section_permalink %}
+  {% when '/' %}{% assign current_section = 'about' %}
+  {% when '/about/' %}{% assign current_section = 'about' %}
+  {% when '/publications/' %}{% assign current_section = 'publications' %}
+  {% when '/cv/' %}{% assign current_section = 'cv' %}
+  {% when '/projects/' %}{% assign current_section = 'research' %}
+  {% when '/research/' %}{% assign current_section = 'research' %}
+  {% when '/repositories/' %}{% assign current_section = 'repositories' %}
+  {% when '/teaching/' %}{% assign current_section = 'teaching' %}
+  {% when '/people/' %}{% assign current_section = 'people' %}
+{% endcase %}
+
 <style>
-  /* Match each menu label to its page title and section headings. */
-  #navbar .nav-link.section-cv { --nav-section-color: #b509ac; }
-  #navbar .nav-link.section-research { --nav-section-color: #7e3fa5; }
-  #navbar .nav-link.section-teaching { --nav-section-color: #007c83; }
-  #navbar .nav-link.section-people { --nav-section-color: #2465a0; }
+  :root {
+    --section-about-bg: #f5e7d4;
+    --section-about-text: #674b26;
+    --section-about-border: #e5d3b8;
+    --section-publications-bg: #f2dfd8;
+    --section-publications-text: #744638;
+    --section-publications-border: #e4c9bf;
+    --section-cv-bg: #f2dcea;
+    --section-cv-text: #72355e;
+    --section-cv-border: #dfbfd3;
+    --section-research-bg: #e7def2;
+    --section-research-text: #593c78;
+    --section-research-border: #d3c3e5;
+    --section-repositories-bg: #e3eadb;
+    --section-repositories-text: #475d36;
+    --section-repositories-border: #cddabc;
+    --section-teaching-bg: #daebe5;
+    --section-teaching-text: #315f53;
+    --section-teaching-border: #bed9ce;
+    --section-people-bg: #dfeaf5;
+    --section-people-text: #365b7d;
+    --section-people-border: #c4d7e9;
+    --section-submenus-bg: #e8e4ec;
+    --section-submenus-text: #574b65;
+    --section-submenus-border: #d3cadc;
+  }
+
+  #navbar .section-about {
+    --section-bg: var(--section-about-bg);
+    --section-text: var(--section-about-text);
+    --section-border: var(--section-about-border);
+  }
+
+  #navbar .section-publications {
+    --section-bg: var(--section-publications-bg);
+    --section-text: var(--section-publications-text);
+    --section-border: var(--section-publications-border);
+  }
+
+  #navbar .section-cv {
+    --section-bg: var(--section-cv-bg);
+    --section-text: var(--section-cv-text);
+    --section-border: var(--section-cv-border);
+  }
+
+  #navbar .section-research {
+    --section-bg: var(--section-research-bg);
+    --section-text: var(--section-research-text);
+    --section-border: var(--section-research-border);
+  }
+
+  #navbar .section-repositories {
+    --section-bg: var(--section-repositories-bg);
+    --section-text: var(--section-repositories-text);
+    --section-border: var(--section-repositories-border);
+  }
+
+  #navbar .section-teaching {
+    --section-bg: var(--section-teaching-bg);
+    --section-text: var(--section-teaching-text);
+    --section-border: var(--section-teaching-border);
+  }
+
+  #navbar .section-people {
+    --section-bg: var(--section-people-bg);
+    --section-text: var(--section-people-text);
+    --section-border: var(--section-people-border);
+  }
+
+  #navbar .section-submenus {
+    --section-bg: var(--section-submenus-bg);
+    --section-text: var(--section-submenus-text);
+    --section-border: var(--section-submenus-border);
+  }
+
+  /* The palette is inherited by every page template, not just layout: page. */
+  [role="main"] {
+    --section-bg: var(--section-{{ current_section }}-bg);
+    --section-text: var(--section-{{ current_section }}-text);
+    --section-border: var(--section-{{ current_section }}-border);
+  }
 
   #navbar .nav-link.section-nav-badge {
     display: inline-block;
+    box-sizing: border-box;
     margin: 0.2rem 0.15rem;
     padding: 0.25rem 0.45rem;
+    border: 1px solid var(--section-border);
     border-radius: 5px;
-    background: var(--nav-section-color);
-    color: #fff;
+    background: var(--section-bg);
+    color: var(--section-text);
     font-weight: 600;
     line-height: 1.25;
-    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 2px 5px rgba(35, 30, 45, 0.10);
   }
 
   #navbar .nav-item.active > .nav-link.section-nav-badge {
-    color: #fff;
+    background: var(--section-bg);
+    color: var(--section-text);
     text-decoration: underline;
     text-underline-offset: 0.2em;
     text-decoration-thickness: 2px;
   }
 
   #navbar .nav-link.section-nav-badge:hover {
-    color: #fff;
-    filter: brightness(1.1);
+    background: var(--section-bg);
+    color: var(--section-text);
+    text-decoration: underline;
+    text-underline-offset: 0.2em;
   }
 
+  #navbar #search-toggle .nav-link { white-space: nowrap; }
+
   #navbar .nav-link.section-nav-badge:focus-visible {
-    outline: 3px solid var(--global-text-color, #202020);
+    outline: 3px solid var(--section-text);
     outline-offset: 3px;
+  }
+
+  /* Titles and section/subsection headings share one badge style. */
+  [role="main"] .post > .post-header > .post-title,
+  [role="main"] .post > article h1,
+  [role="main"] .post > article h2:not(.year):not(.bibliography),
+  [role="main"] .post > article h3,
+  [role="main"] .post > article h4,
+  [role="main"] .post > h2 {
+    display: block;
+    box-sizing: border-box;
+    width: fit-content;
+    max-width: 100%;
+    padding: 0.45rem 0.85rem;
+    border: 1px solid var(--section-border);
+    border-radius: 5px;
+    background: var(--section-bg);
+    color: var(--section-text);
+    box-shadow: 0 2px 6px rgba(35, 30, 45, 0.10);
+    font-weight: 600;
+    line-height: 1.3;
+    overflow-wrap: anywhere;
+  }
+
+  [role="main"] .post > .post-header > .post-title {
+    margin-bottom: 0.8rem;
+  }
+
+  [role="main"] .post > article h1,
+  [role="main"] .post > article h2:not(.year):not(.bibliography),
+  [role="main"] .post > h2 {
+    margin-top: 2rem;
+    margin-bottom: 1.1rem;
+  }
+
+  [role="main"] .post > article h3,
+  [role="main"] .post > article h4 {
+    margin-top: 1.5rem;
+    margin-bottom: 0.8rem;
+    padding: 0.35rem 0.7rem;
+  }
+
+  [role="main"] .post > .post-header > .post-title a,
+  [role="main"] .post > .post-header > .post-title span,
+  [role="main"] .post > article h1 a,
+  [role="main"] .post > article h2:not(.year):not(.bibliography) a,
+  [role="main"] .post > article h3 a,
+  [role="main"] .post > article h4 a {
+    color: inherit;
+  }
+
+  /* Preserve the separate, understated year labels in publication lists. */
+  [role="main"] .publications h2.year,
+  [role="main"] .publications h2.bibliography {
+    background: transparent;
+    border: 0;
+    box-shadow: none;
+  }
+
+  /* Publication journal labels use the same softer palette. */
+  [role="main"] .publications ol.bibliography .abbr abbr.badge {
+    background: var(--section-bg);
+    color: var(--section-text);
+    border: 1px solid var(--section-border);
+    box-shadow: 0 2px 5px rgba(35, 30, 45, 0.10);
+  }
+  [role="main"] .publications ol.bibliography .abbr abbr.badge a {
+    color: inherit;
+  }
+
+  @media (max-width: 575.98px) {
+    [role="main"] .post > .post-header > .post-title,
+    [role="main"] .post > article h1 {
+      font-size: 1.8rem;
+    }
+    [role="main"] .post > article h2:not(.year):not(.bibliography),
+    [role="main"] .post > h2 {
+      font-size: 1.4rem;
+      padding: 0.4rem 0.7rem;
+    }
+    [role="main"] .post > article h3 { font-size: 1.2rem; }
+    [role="main"] .post > article h4 { font-size: 1.05rem; }
   }
 </style>
 
 <header>
   <!-- Nav Bar -->
-  <nav id="navbar" class="navbar navbar-light navbar-expand-sm {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
+  <nav id="navbar" class="navbar navbar-light navbar-expand-lg {% if site.navbar_fixed %}fixed-top{% else %}sticky-top{% endif %}" role="navigation">
     <div class="container">
       {% if page.permalink != '/' %}
         <a class="navbar-brand title font-weight-lighter d-none" href="{{ site.baseurl }}/">
@@ -85,7 +265,7 @@
 
           <!-- About -->
           <li class="nav-item {% if page.permalink == '/' %}active{% endif %}">
-            <a class="nav-link" href="{{ '/' | relative_url }}">
+            <a class="nav-link section-nav-badge section-about" href="{{ '/' | relative_url }}">
               {{- about_title }}
               {% if page.permalink == '/' %}
                 <span class="sr-only">(current)</span>
@@ -106,7 +286,7 @@
                 {% endfor %}
                 <li class="nav-item dropdown {% if page.title == p.title or has_active_child %}active{% endif %}">
                   <a
-                    class="nav-link dropdown-toggle"
+                    class="nav-link dropdown-toggle section-nav-badge section-submenus"
                     href="#"
                     id="navbarDropdown"
                     role="button"
@@ -144,15 +324,20 @@
                   {%- else -%}
                     {%- assign url = p.url -%}
                   {%- endif %}
-                  {% assign nav_section = '' %}
-                  {% assign nav_permalink = p.permalink | downcase %}
+                  {% assign nav_section = 'submenus' %}
+                  {% assign nav_permalink = p.permalink | default: p.url | downcase %}
                   {% case nav_permalink %}
+                    {% when '/' %}{% assign nav_section = 'about' %}
+                    {% when '/about/' %}{% assign nav_section = 'about' %}
+                    {% when '/publications/' %}{% assign nav_section = 'publications' %}
                     {% when '/cv/' %}{% assign nav_section = 'cv' %}
                     {% when '/projects/' %}{% assign nav_section = 'research' %}
+                    {% when '/research/' %}{% assign nav_section = 'research' %}
+                    {% when '/repositories/' %}{% assign nav_section = 'repositories' %}
                     {% when '/teaching/' %}{% assign nav_section = 'teaching' %}
                     {% when '/people/' %}{% assign nav_section = 'people' %}
                   {% endcase %}
-                  <a class="nav-link{% if nav_section != '' %} section-nav-badge section-{{ nav_section }}{% endif %}" href="{{ url | relative_url }}">
+                  <a class="nav-link section-nav-badge section-{{ nav_section }}" href="{{ url | relative_url }}">
                     {{- p.title }}
                     {% if page.url contains p.url %}
                       <span class="sr-only">(current)</span>
