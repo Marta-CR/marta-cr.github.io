@@ -23,9 +23,9 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/cv/";
           },
-        },{id: "nav-projects",
-          title: "projects",
-          description: "A growing collection of your cool projects.",
+        },{id: "nav-research-lines",
+          title: "research lines",
+          description: "Exploring molecular complexity in space and the origins of reactivity and selectivity.",
           section: "Navigation",
           handler: () => {
             window.location.href = "/projects/";
