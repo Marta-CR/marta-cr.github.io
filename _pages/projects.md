@@ -1,6 +1,6 @@
 ---
 layout: page
-title: research lines
+title: Research
 permalink: /projects/
 description: Exploring molecular complexity in space and the origins of reactivity and selectivity.
 nav: true
