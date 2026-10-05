@@ -14,7 +14,7 @@ ninja.data = [{
           description: "Journal articles, conference papers and repository working papers.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/Publications/";
+            window.location.href = "/publications/";
           },
         },{id: "nav-cv",
           title: "CV",
