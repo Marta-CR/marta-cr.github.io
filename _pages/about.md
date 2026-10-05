@@ -1,7 +1,7 @@
 ---
 layout: About
 title: About
-permalink: /about/
+permalink: /
 subtitle: Computational Chemist · University of Oviedo
 
 profile:
