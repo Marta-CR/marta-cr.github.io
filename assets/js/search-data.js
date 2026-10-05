@@ -21,7 +21,7 @@ ninja.data = [{
           description: "Academic appointments, research, teaching and service.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/CV/";
+            window.location.href = "/cv/";
           },
         },{id: "nav-research",
           title: "Research",
