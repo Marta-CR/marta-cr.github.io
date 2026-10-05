@@ -23,8 +23,8 @@ ninja.data = [{
           handler: () => {
             window.location.href = "/CV/";
           },
-        },{id: "nav-research-lines",
-          title: "research lines",
+        },{id: "nav-research",
+          title: "Research",
           description: "Exploring molecular complexity in space and the origins of reactivity and selectivity.",
           section: "Navigation",
           handler: () => {
