@@ -65,6 +65,18 @@ books_read:
   - title: La fundación
     author: Antonio Buero Vallejo
     language: es
+  - title: The Black Art of Killing
+    author: Matthew Hall
+    language: en
+  - title: "1984"
+    author: George Orwell
+    language: es
+  - title: Un mundo feliz
+    author: Aldous Huxley
+    language: es
+  - title: Rebelión en la granja
+    author: George Orwell
+    language: es
 
 to_finish:
   - title: Anna Karénina
