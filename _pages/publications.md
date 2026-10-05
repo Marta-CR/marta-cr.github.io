@@ -1,7 +1,7 @@
 ---
 layout: page
-permalink: /publications/
-title: publications
+permalink: /Publications/
+title: Publications
 description: Journal articles, conference papers and repository working papers.
 nav: true
 nav_order: 2
