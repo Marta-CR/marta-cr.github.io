@@ -1,7 +1,7 @@
 ---
 layout: page
-title: cv
-permalink: /cv/
+title: CV
+permalink: /CV/
 description: Academic appointments, research, teaching and service.
 nav: true
 nav_order: 3
