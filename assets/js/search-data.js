@@ -17,11 +17,11 @@ ninja.data = [{
             window.location.href = "/Publications/";
           },
         },{id: "nav-cv",
-          title: "cv",
+          title: "CV",
           description: "Academic appointments, research, teaching and service.",
           section: "Navigation",
           handler: () => {
-            window.location.href = "/cv/";
+            window.location.href = "/CV/";
           },
         },{id: "nav-research-lines",
           title: "research lines",
